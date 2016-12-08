@@ -48,7 +48,7 @@ Options:
    --version      Print version and exit.
 ```
 
-`xsudo iwrite xsudo iwrite -x /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img /dev/sde`
+`xsudo iwrite -x /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img /dev/sde`
 
 
 ![Image writer using X-window](./doc/screenshots/iwrite_progressX.png)
