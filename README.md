@@ -194,7 +194,7 @@ Options:
    --version   Version-number
 ```
 
-Example:
+Example 1:
 `sudo cross-chroot -vmf /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img`
 
 ```c
@@ -247,10 +247,14 @@ INFO: Unmount partition: "/mnt/+hdd+v1+FLASH+2016-09-23-raspbian-jessie.img2" by
 INFO: Remove directory:  "/mnt/+hdd+v1+FLASH+2016-09-23-raspbian-jessie.img2"
 ```
 
+Example 2: Executing the web-browser DILLO for ARM on the PC which is installed
+in the raspberry pi image.
 
-`xsudo cross-chroot -vmf /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img pcmanfm`
+`xsudo cross-chroot -vmf /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img dillo`
 
-![PCMANFM for ARM in i86-PC](./doc/screenshots/pcmanfm_for_ARM_in_PC.png)
+![Browser DILLO for ARM in i86-PC](./doc/screenshots/dillo_for_ARM_in_PC.png)
+
+Example 3: Executing the raspberry pi configuration-script on the PC.
 
 `sudo cross-chroot -vmf /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img raspi-config`
 
