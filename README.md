@@ -159,6 +159,9 @@ INFO: Remove directory:  "/mnt/+hdd+v1+FLASH+2016-09-23-raspbian-jessie.img2"
 Cross change root
 -----------------
 
+By this tool it becomes possible to simulate for example a raspberry pi or similar devices
+on the PC with the appropriate image-file.
+
 Example:
 `cross-chroot -h`
 
