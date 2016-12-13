@@ -68,7 +68,7 @@ printHelp()
 {
    cat << __EOH__
 
-Programm to install or uninstall the INKATRON- I-Tools
+Program to install or uninstall the INKATRON- I-Tools
 $(basename $(readlink -m ${0##*/})): (C) 2014 www.INKATRON.de
 Author: Ulrich Becker
 Version: $VERSION
