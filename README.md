@@ -8,9 +8,7 @@ Linux tools for manipulating image files and writing or reading to and from flas
 
 Image writer for Linux:
 -----------------------
-Example:
-
-`iwrite -h`
+Build-in help: `iwrite -h`
 
 ```c
 Image-Writer
@@ -58,8 +56,7 @@ Image reader for Linux
 ----------------------
 Counterpart of the image-writer iwrite.
 
-Example:
-`iwrite -h`
+Build-in help: `iwrite -h`
 
 ```c
 Image-reader
@@ -96,8 +93,7 @@ Image mounter
 The image-mounter mounts or un-mounts all included mountable partitions of a image-file.
 This program is mandatory for using "cross-chroot".
 
-Example:
-`imount -h`
+Build-in help: `imount -h`
 
 ```c
 Imagefile-Mounter and Unmounter
@@ -162,8 +158,7 @@ Cross change root
 By this tool it becomes possible to simulate for example a raspberry pi or similar devices
 on the PC with the appropriate image-file.
 
-Example:
-`cross-chroot -h`
+Build-in help: `cross-chroot -h`
 
 ```c
 cross-chroot: (C) 2014 www.INKATRON.de
@@ -289,9 +284,20 @@ Options:
 `xsudo iparted -v /hdd/v1/FLASH/2016-09-23-raspbian-jessie.img 8GiB`
 
 ![I-Parted example](./doc/screenshots/iparted.png)
+<br /><br />
+The permission file "/etc/dev_permissions.conf"
+===============================================
+
+The central point of the I-Tools is the permission file "dev_permissions.conf",
+by default stored in the folder "/etc/".<br />
+<b>Without this file nothing will do!</b><br />
+The permission-file contains the items of all device-files which are allowed
+for the access of I-Tools for writing or reading.<br />
+In this way there is no danger of mistyping a input which can damage your system
+e.g.: accidentally input of /dev/sda. :bomb:
 
 Example for the device permission file:
----------------------------------------
+
 ```
 ###############################################################################
 ##                                                                           ##
