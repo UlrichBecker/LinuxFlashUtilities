@@ -288,15 +288,28 @@ Options:
 The permission file "/etc/dev_permissions.conf"
 ===============================================
 
-The central point of the I-Tools is the permission file "dev_permissions.conf",
-by default stored in the folder "/etc/".<br />
+The central point of the I-Tools is the permission file `dev_permissions.conf`,
+by default stored in the folder `/etc/`.<br />
 <b>Without this file nothing will do!</b><br />
 The permission-file contains the items of all device-files which are allowed
 for the access of I-Tools for writing or reading.<br />
 In this way there is no danger of mistyping a input which can damage your system
-e.g.: accidentally input of /dev/sda. :bomb:
+e.g.: accidentally input of `/dev/sda`. :bomb: <br />
 
-Example for the device permission file:
+You can write this file by a simple text editor or it's also possible to generate
+it automatically by the program `mk-permit`. <br />
+In the case of automatically generation follow the instructions of the program
+`mk-permit.sh`. <br />
+
+<b>CAUTION: If you have added or removed additional physical hard-disks on your
+computer so you have to repeat this procedure after that immediately!</b><br />
+
+The example below shows the content of a automatically generated permission-file
+by `mk-permit.sh`.
+In this example the device-files `/dev/sda` and `/dev/sdb` are physical hard-disks
+on the computer where the access of the I-Tools isn't permitted for safety
+reasons. The device-files `/dev/sdc`, `/dev/sdd`, `/dev/sde` and `/dev/sdf` are
+permitted for write and read accesses for the Image-File-Tools.
 
 ```
 ###############################################################################
@@ -314,6 +327,50 @@ Example for the device permission file:
 /dev/sdd
 /dev/sde
 /dev/sdf
+```
+Additional required software
+============================
+- <b>Pipe viewer PV</b> Version >= 2.3.1<br />
+  URL: http://www.ivarch.com/programs/pv.shtml <br />
+  Required for: `iwrite.sh` and `iread.sh`
+- <b>Xdialog</b><br />
+  URL: http://xdialog.free.fr <br />
+  Optional required for `iwrite.sh` and `iread.sh` <br />
+  Mandatory required for `iparted.sh`
+- <b>chroot</b><br />
+  URL: http://ftp.gnu.org/gnu/coreutils <br />
+  Required for: `cross-chroot.sh`
+- <b>CPU-Emulator qemu</b> (the static linked version) <br />
+  URL: http://wiki.qemu.org <br />
+  Required for `cross-chroot.sh`
+- <b>gparted (Gnome Partition Editor)</b> Version >= 0.14.1 <br />
+  URL: http://gparted.org <br />
+  Required for `iparted.sh`
 
-#==================================== EOF =====================================
+Installation
+============
+1) Download or make a clone from github: <br />
+   `git clone https://github.com/UlrichBecker/LinuxFlashUtilities.git`
+   <br />
+   If you doesn't have installed <b>git</b> on your computer so you can also
+   download the ZIP-file from the URL above.
+2) Navigate to the sub-directory `cd ./src`.
+3) Type `sudo ./install.sh`.
+4) Create the permission-file `/etc/dev_permissions.conf` like described above.
+
+The following output shows the build-in help of `install.sh -h`:
+```c
+Program to install or uninstall the INKATRON- I-Tools
+install.sh: (C) 2014 www.INKATRON.de
+Author: Ulrich Becker
+Version: 0.1
+
+Usage: install.sh [-options]
+
+Options:
+   -h, --help  This help
+   -u          Uninstall
+   -l          List all programs.
+   -t=<target directory>  Default is "/usr/local/bin"
+   --version   Print version
 ```
