@@ -133,7 +133,7 @@ __EOH__
 #------------------------------------------------------------------------------
 hasRootFilesystem()
 {
-   local mustHave="bin boot dev etc home lib proc sbin sys tmp usr var"
+   local mustHave="bin dev etc lib proc sbin sys tmp usr var"
 
    local has=$(ls $1)
    local i
