@@ -40,7 +40,7 @@
 #  Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. #
 ###############################################################################
 # $Id: cross-chroot.sh,v 1.42 2014/10/16 17:24:14 uli Exp $
-VERSION=0.20
+VERSION=0.30
 DO_DEBUG=false
 #DO_DEBUG=true
 
@@ -53,6 +53,8 @@ DO_LIST_PERMITTED_BLOCK_DEVICES=false
 DO_PRINT_HELP=false
 DO_PRINT_VERSION=false
 DO_USE_X11=false
+
+DEFAULT_TARGET_PROGRAM="sh"
 
 TEST_FILE="/sbin/init"
 
@@ -839,7 +841,12 @@ execChangeRoot()
          echo " **************************"
       fi
    fi
-   chroot $targetRoot $@
+   if [ -n "$1" ]
+   then
+      chroot $targetRoot $@
+   else
+      chroot $targetRoot $DEFAULT_TARGET_PROGRAM
+   fi
    local chrootRet=$?
 
    if [ -x "${LEAVE_EXEC% *}" ]
